@@ -188,25 +188,18 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 
 > ©POWERED BY HASHAN-MD
 `;
-
-     // Send the status message with an image
-        await conn.sendMessage(from, { 
-            image: { url: `https://res.cloudinary.com/df2rnoijw/image/upload/v1752404824/shkqo3nbxkhhbyej2lxm.jpg` },  // Ensure this URL is always accessible
-            caption: status,
-            contextInfo: {
-                mentionedJid: [m.sender], // Ensure m.sender is always a valid JID
-                forwardingScore: 999,
-                isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363369981563818@newsletter', // This JID needs to be valid and accessible
-                    newsletterName: 'HASHAN-MD-V1',
-                    serverMessageId: 143
+                        break;
+                    default:
+                        responseText = "*❌ Invalid option. Please enter a valid number (1-10)*";
                 }
+
+                // තෝරාගත් මෙනුව WhatsApp chat එකට යවයි.
+                await conn.sendMessage(from, { text: responseText }, { quoted: mek });
             }
-        }, { quoted: mek });
+        });
 
     } catch (e) {
-        console.error("Error in alive command:", e);
-        reply(`An error occurred: ${e.message}`);
+        console.error(e);
+        reply(`*⚠ An error occurred: ${e.message}*`);
     }
 });
