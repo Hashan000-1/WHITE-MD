@@ -16,9 +16,9 @@
       "required": false
     },
     
-    "ALIVE_MSG": {
-      "description": "Put your alive msg here.",
-      "required": false 
+    "AUTO_RECORDING": {
+      "description": "true",
+      "required": true 
     }   
 },
 
